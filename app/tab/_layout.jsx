@@ -3,15 +3,21 @@ import React from 'react'
 import { Tabs } from 'expo-router'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Color from './../../constants/Color'
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function Tablayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: Color.PRIMARY
+      }}
+    >
         <Tabs.Screen name='home'
           options={{
             title: 'Home',
             headerShown: false,
-            tabBarIcon: ({color})=><AntDesign name="home" size={24} color={color} />
+            tabBarIcon: ({color})=> <FontAwesome name="home" size={24} color={color} />
           }}
         />
         <Tabs.Screen name='favorite'
