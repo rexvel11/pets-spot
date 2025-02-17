@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../../components/Home/Header'
 import Color from '../../constants/Color'
 import Slider from '../../components/Home/Slider'
+import PetListByCategory from '../../components/Home/PetListByCategory'
 
 export default function Home() {
   return (
@@ -17,9 +18,8 @@ export default function Home() {
         <Header/>
         {/* Slider */}
         <Slider/>
-        {/* Category */}
-
-        {/* List of pets  */}
+        {/* Pet List + Category */}
+        <PetListByCategory/>
 
     </View>
   )
