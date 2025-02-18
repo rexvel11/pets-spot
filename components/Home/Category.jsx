@@ -26,9 +26,9 @@ export default function Category({category}) {
 
   return (
     <View style={{
-        marginTop: 20,
+        marginTop: 10,
         height: 130
-    }}>
+    }}> 
       <Text style={{
         fontFamily: 'outfit-medium',
         fontSize:20

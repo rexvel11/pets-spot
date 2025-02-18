@@ -4,5 +4,6 @@ export default{
     WHITE: '#FAF9F6',
     LIGHT_BG: '#A3A7D2',
     BORDER: '#151C62',
-    CLICK: '#FFFBCA'
+    CLICK: '#FFFBCA',
+    READ: '#fa00c8'
 }

@@ -21,7 +21,7 @@ export default function Slider() {
 
   return (
     <View style={{
-      marginTop: 40,
+      marginTop: 10,
       height: 150
     }}>
       <FlatList 

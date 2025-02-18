@@ -31,7 +31,7 @@ export default function PetListByCategory() {
 
   return (
     <View style={{
-      height: 360
+      height: 380
     }}> 
        <Category category={(value)=>GetPetList(value)}/>
         <FlatList
@@ -44,6 +44,7 @@ export default function PetListByCategory() {
              <PetListItem pet={item} />
           )}
         />
+        
     </View>
   )
 }
