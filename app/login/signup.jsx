@@ -1,4 +1,4 @@
-import { Image, View, Text, TextInput, Pressable } from 'react-native';
+import { Image, View, Text, TextInput, Pressable, ScrollView } from 'react-native';
 import React from 'react';
 import Color from './../../constants/Color';
 import { useNavigation } from '@react-navigation/native';
@@ -16,13 +16,14 @@ export default function SignUp() {
       justifyContent: 'center'
     }}>
 
+      <ScrollView>
       {/* Back button at the top left */}
       <Pressable 
         onPress={() => navigation.goBack()} 
         style={{
           position: 'absolute',
-          top: 40,
-          left: 20,
+          top: 20,
+          left: 1,
           zIndex: 10,
           padding: 10,
         }}
@@ -33,7 +34,7 @@ export default function SignUp() {
       <Image source={require('./../../assets/images/logo.png')}
           style={{
             width: '100%',
-            height: 220
+            height: 240
           }}
       />
 
@@ -114,6 +115,8 @@ export default function SignUp() {
           <Text style={{ color: Color.PRIMARY }}>Login.</Text>
         </Text>
       </Link>
+
+      </ScrollView>
     </View>
   );
 }

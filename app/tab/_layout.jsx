@@ -5,6 +5,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Color from './../../constants/Color'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function Tablayout() {
   return (
@@ -20,11 +21,11 @@ export default function Tablayout() {
             tabBarIcon: ({color})=> <FontAwesome name="home" size={24} color={color} />
           }}
         />
-        <Tabs.Screen name='favorite'
+        <Tabs.Screen name='addPet'
           options={{
-            title: 'Favorite',
+            title: 'Add Pet',
             headerShown: false,
-            tabBarIcon:({color})=> <AntDesign name="heart" size={24} color={color} />
+            tabBarIcon:({color})=> <MaterialIcons name="add-circle-outline" size={24} color={color} />
           }}
         />
         <Tabs.Screen name='inbox'

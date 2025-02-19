@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function Favorite() {
+export default function AddPet() {
   return (
     <View>
-      <Text>Favorite</Text>
+      <Text>AddPet</Text>
     </View>
   )
 }
