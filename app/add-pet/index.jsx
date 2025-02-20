@@ -117,7 +117,9 @@ export default function AddNewPet() {
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Age *</Text>
-        <TextInput style={styles.input} placeholder='Age' 
+        <TextInput style={styles.input}
+          keyboardType='number-pad'
+        placeholder='Age' 
         onChangeText={(value)=>handlerInputChange('age', value)}/>
       </View>
 
@@ -137,7 +139,9 @@ export default function AddNewPet() {
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Weight *</Text>
-        <TextInput style={styles.input} placeholder='Weight' 
+        <TextInput style={styles.input} 
+          keyboardType='number-pad'
+        placeholder='Weight' 
         onChangeText={(value)=>handlerInputChange('weight', value)}/>
       </View>
 
