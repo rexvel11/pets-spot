@@ -20,6 +20,11 @@ export default function PetDetails() {
     })
   }, [])
 
+
+  const InitiateChat=()=>{
+
+  }
+
   return (
     <View>
       <ScrollView>
@@ -41,7 +46,9 @@ export default function PetDetails() {
       
       {/* Adopt Button  */}
       <View style={styles?.bottomContainer}>
-          <TouchableOpacity style={styles?.adoptBtn}>
+          <TouchableOpacity
+          onPress={InitiateChat}
+          style={styles?.adoptBtn}>
               <Text style={{
                 fontFamily: 'outfit-medium',
                 textAlign: 'center',

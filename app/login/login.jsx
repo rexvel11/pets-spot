@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'; 
 import { Link } from "expo-router";
 import pb from './../pocketbase'; // Import PocketBase instance
+import { router } from "expo-router";
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Login() {
   const navigation = useNavigation();
@@ -15,23 +17,28 @@ export default function Login() {
     try {
       const authData = await pb.collection('users').authWithPassword(email, password);
       console.log('Login Successful:', authData);
+  
+      // Redirect to /tab/home after successful login
+      Alert.alert('',"Successfully logged in.");
+      router.push('/tab/home');
+      
     } catch (error) {
-      Alert.alert('Login Failed', error.message);
+      Alert.alert('', "Your email or password is incorrect.");
     }
   };
 
   return (
-    <View style={{
+    <ScrollView 
+    showsVerticalScrollIndicator={false}
+    style={{
       backgroundColor: Color.WHITE,
       height: '100%',
       padding: 20,
-      justifyContent: 'center'
     }}>
 
-      <ScrollView>
         {/* Back button at the top left */}
-        <Pressable 
-          onPress={() => navigation.goBack()} 
+        <Link
+          href={'/login'}
           style={{
             position: 'absolute',
             top: 20,
@@ -41,12 +48,12 @@ export default function Login() {
           }}
         >
           <Ionicons name="arrow-back" size={24} color={Color.BLACK} />
-        </Pressable>
+        </Link>
 
         <Image source={require('./../../assets/images/logo.png')}
             style={{
               width: '100%',
-              height: 300
+              height: 230
             }}
         />
 
@@ -94,12 +101,11 @@ export default function Login() {
           value={password} // Added
         />
 
-        <Link
-          href={'/tab/home'}
+        <Pressable
           onPress={handleLogin} // Changed from Link to Pressable
           style={{
             padding: 14,
-            marginTop: 40,
+            marginTop: 30,
             backgroundColor: Color.PRIMARY,
             borderRadius: 14
           }}
@@ -109,7 +115,45 @@ export default function Login() {
             fontSize: 20,
             textAlign: 'center',
           }}>Login</Text>
-        </Link>
+        </Pressable>
+        
+         {/* ---- Horizontal Line ---- */}
+        <View style={{ 
+          flexDirection: 'row', 
+          alignItems: 'center', 
+          marginVertical: 20 
+        }}>
+          <View style={{ flex: 1, height: 1, backgroundColor: Color.GRAY }} />
+          <Text style={{
+            marginHorizontal: 10,
+            fontFamily: 'outfit',
+            fontSize: 16,
+            color: Color.GRAY
+          }}>or</Text>
+          <View style={{ flex: 1, height: 1, backgroundColor: Color.GRAY }} />
+        </View>
+
+        {/* ---- Google Login Button ---- */}
+        <Pressable
+          onPress={() => Alert.alert('Google Login', 'Google login not implemented yet.')}
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 12,
+            borderWidth: 1,
+            borderColor: Color.GRAY,
+            borderRadius: 10,
+          }}
+        >
+          <AntDesign name="google" size={24} color="red" />
+          <Text style={{
+            fontFamily: 'outfit-medium',
+            fontSize: 18,
+            marginLeft: 10
+          }}>Continue with Google</Text>
+        </Pressable>
+
 
         {/* "Don't have an account? Sign Up." Section */}
         <Link href={'/login/signup'} style={{ marginTop: 20 }}>
@@ -123,7 +167,10 @@ export default function Login() {
             <Text style={{ color: Color.PRIMARY }}>Sign up.</Text>
           </Text>
         </Link>
-      </ScrollView>
-    </View>
+
+        <View style={{
+          height: 40
+        }}></View>
+    </ScrollView>
   );
 }

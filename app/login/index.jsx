@@ -37,7 +37,7 @@ export default function LoginScreen() {
 
           <Link href={'/login/login'}style={{
             padding: 14,
-            marginTop: 80,
+            marginTop: 70,
             backgroundColor:Color.PRIMARY,
             width: '100%',
             borderRadius: 14
