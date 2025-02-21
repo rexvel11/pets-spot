@@ -42,7 +42,6 @@ export default function SignUp() {
         return;
       }
     } catch (error) {
-      // If PocketBase returns "Record not found," that means the email is available
       if (error.response?.code !== 404) {
         console.log("Email Check Error:", error);
         Alert.alert('Signup Failed', 'An error occurred while checking the email.');
